@@ -1,24 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import { Route, Routes } from "react-router";
+import Home from "./Routes/Home";
+import Profile from "./Routes/Profile";
 
 function App() {
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    district: "",
+    province: "",
+    country: "",
+  });
+  const [allInfo, setAllInfo] = useState([]);
+  const [editedInfo, setEditedInfo] = useState();
+  useEffect(() => {
+    const storedAllInfo = localStorage.getItem("allInfo");
+    if (storedAllInfo) {
+      setAllInfo(JSON.parse(storedAllInfo));
+    }
+    console.log("fetched items", storedAllInfo);
+  }, []);
+  useEffect(() => {
+    const saveToLocal = () => {
+      localStorage.setItem("allInfo", JSON.stringify(allInfo));
+      console.log("stored items", allInfo);
+    };
+    if (allInfo.length > 0) {
+      saveToLocal();
+    }
+  }, [allInfo]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              userInfo={userInfo}
+              setUserInfo={setUserInfo}
+              allInfo={allInfo}
+              setAllInfo={setAllInfo}
+              setEditedInfo={setEditedInfo}
+              editedInfo={editedInfo}
+            />
+          }
+        ></Route>
+        <Route
+          path="/profiles"
+          element={<Profile allInfo={allInfo} setAllInfo={setAllInfo} />}
+        ></Route>
+      </Routes>
+    </>
   );
 }
 
