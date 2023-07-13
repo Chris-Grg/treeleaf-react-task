@@ -48,7 +48,6 @@ const Form = ({ userInfo, setUserInfo, allInfo, setAllInfo }) => {
           <input
             className="email"
             type="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.(com|net|org)$"
             placeholder="name@example.com"
             required
             value={userInfo.email}
