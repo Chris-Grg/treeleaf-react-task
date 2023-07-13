@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
 }
 
 .profile-list {
@@ -18,4 +17,10 @@
 
 .profile-label {
   font-weight: bold;
+}
+li{
+  margin-bottom: 0;
+}
+ul button{
+  margin: 0 auto 1rem auto;
 }

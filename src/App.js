@@ -12,10 +12,10 @@ function App() {
     city: "",
     district: "",
     province: "",
-    country: "",
+    country: "Nepal",
   });
   const [allInfo, setAllInfo] = useState([]);
-  const [editedInfo, setEditedInfo] = useState();
+  const [editContent, setEditContent] = useState({});
   useEffect(() => {
     const storedAllInfo = localStorage.getItem("allInfo");
     if (storedAllInfo) {
@@ -44,14 +44,21 @@ function App() {
               setUserInfo={setUserInfo}
               allInfo={allInfo}
               setAllInfo={setAllInfo}
-              setEditedInfo={setEditedInfo}
-              editedInfo={editedInfo}
+              editContent={editContent}
+              setEditContent={setEditContent}
             />
           }
         ></Route>
         <Route
           path="/profiles"
-          element={<Profile allInfo={allInfo} setAllInfo={setAllInfo} />}
+          element={
+            <Profile
+              allInfo={allInfo}
+              setAllInfo={setAllInfo}
+              editContent={editContent}
+              setEditContent={setEditContent}
+            />
+          }
         ></Route>
       </Routes>
     </>

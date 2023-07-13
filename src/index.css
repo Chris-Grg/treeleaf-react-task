@@ -2,8 +2,9 @@
 display: flex;
 align-content: center;
 flex-wrap: nowrap;
-width:60vw;
-margin: auto;
+width:70vw;
+margin: 20px auto;
+height:10%
 }
 .required-symbol {
   color: rgb(255, 9, 9);
@@ -18,7 +19,9 @@ margin: auto;
   align-items:center ;
 }
 .update-button{
+  margin: 1.6rem auto 0.2rem auto;
 }
+
 .nextpage-button {
   padding: 10px 20px;
   background-color: #153aaa;
@@ -120,7 +123,4 @@ input[type="submit"] {
 
 a{
 color:#dfdfe2;
-}
-button{
-  justify-self:center ;
 }

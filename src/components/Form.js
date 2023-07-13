@@ -16,6 +16,7 @@ const Form = ({ userInfo, setUserInfo, allInfo, setAllInfo }) => {
       name: "",
       email: "",
       phone: "",
+      dob: "",
       city: "",
       district: "",
       province: "",
@@ -47,6 +48,7 @@ const Form = ({ userInfo, setUserInfo, allInfo, setAllInfo }) => {
           <input
             className="email"
             type="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.(com|net|org)$"
             placeholder="name@example.com"
             required
             value={userInfo.email}
@@ -64,6 +66,15 @@ const Form = ({ userInfo, setUserInfo, allInfo, setAllInfo }) => {
             placeholder="eg: 5512345"
             required
             value={userInfo.phone}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-item">
+          <label htmlFor="dob">D.O.B.</label>
+          <input
+            className="dob"
+            type="date"
+            value={userInfo.dob}
             onChange={handleChange}
           />
         </div>
@@ -87,7 +98,9 @@ const Form = ({ userInfo, setUserInfo, allInfo, setAllInfo }) => {
             />
           </div>
           <div className="form-item">
-            <label htmlFor="province">Province</label>
+            <label htmlFor="province" required>
+              Province
+            </label>
             <select
               className="province"
               onChange={handleChange}
@@ -105,13 +118,12 @@ const Form = ({ userInfo, setUserInfo, allInfo, setAllInfo }) => {
           </div>
           <div className="form-item">
             <label htmlFor="country">Country</label>
-            <select
+            <input
               className="country"
-              onChange={handleChange}
+              // onChange={handleChange}
+              readOnly
               value={userInfo.country}
-            >
-              <option value="Nepal">Nepal</option>
-            </select>
+            ></input>
           </div>
           <button type="submit">Submit</button>
         </div>

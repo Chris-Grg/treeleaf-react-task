@@ -6,8 +6,8 @@ const Home = ({
   setUserInfo,
   allInfo,
   setAllInfo,
-  editedInfo,
-  setEditedInfo,
+  editContent,
+  setEditContent,
 }) => {
   return (
     <div>
@@ -19,10 +19,10 @@ const Home = ({
       />
       <List
         userInfo={userInfo}
-        editedInfo={editedInfo}
         allInfo={allInfo}
-        setEditedInfo={setEditedInfo}
         setAllInfo={setAllInfo}
+        editContent={editContent}
+        setEditContent={setEditContent}
       />
     </div>
   );
